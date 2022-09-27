@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkDownPlugin", "MarkDownPlugin\MarkDownPlugin.csproj", "{F8891849-B156-4583-BCEE-21C5862E7830}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityApi", "IdentityApi\IdentityApi.csproj", "{61675343-DDCC-49F9-9473-D344C8ECF3F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8891849-B156-4583-BCEE-21C5862E7830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8891849-B156-4583-BCEE-21C5862E7830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8891849-B156-4583-BCEE-21C5862E7830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8891849-B156-4583-BCEE-21C5862E7830}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61675343-DDCC-49F9-9473-D344C8ECF3F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61675343-DDCC-49F9-9473-D344C8ECF3F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61675343-DDCC-49F9-9473-D344C8ECF3F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61675343-DDCC-49F9-9473-D344C8ECF3F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
