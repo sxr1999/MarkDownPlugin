@@ -5,6 +5,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using IdentityApi.Attributes;
+using IdentityApi.Filters;
 using IdentityApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -44,6 +46,7 @@ namespace IdentityApi.Controllers
 
         [HttpGet]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        
         public string Success()
         {
             var Username = this.User.FindFirst(ClaimTypes.Name);
@@ -52,6 +55,7 @@ namespace IdentityApi.Controllers
 
 
         [HttpPost]
+        [NotCheckJWTVersion]
         public async Task<ActionResult<string>> Login(UserViewModel model)
         {
             var user = await _userManager.FindByNameAsync(model.UserName);
@@ -66,8 +70,11 @@ namespace IdentityApi.Controllers
                 return BadRequest("密码错误");
             }
 
+            user.JWTVersion++;
+            await _userManager.UpdateAsync(user);
             var claims = new List<Claim>();
             claims.Add(new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()));
+            claims.Add(new Claim("JWTVersion",user.JWTVersion.ToString()));
             claims.Add(new Claim(ClaimTypes.Name,user.UserName));
             var roles = await _userManager.GetRolesAsync(user);
             foreach (var role in roles)
